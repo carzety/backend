@@ -32,7 +32,7 @@ Route::delete('/patients/{id}', [PasienController::class, 'destroy']);
 
 Route::get('/patients/search/{name}', [PasienController::class, 'search']);
 
-Route::get('/patients/status/{status}', [PasienController::class, 'status']);
+// Route::get('/patients/status/{status}', [PasienController::class, 'status']);
 
 Route::get('/patients/status/positive', [PasienController::class, 'positive']);
 

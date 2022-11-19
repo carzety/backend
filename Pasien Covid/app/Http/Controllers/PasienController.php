@@ -111,7 +111,7 @@ class PasienController extends Controller
         $patients = Covid::where("name", "like", "%" .$name. "%")->get();
         if (count($patients)) {
             $data = [
-                'message' => 'Get',
+                'message' => 'Get searched resource',
                 'data' => $patients,
             ];
 
@@ -128,8 +128,10 @@ class PasienController extends Controller
     public function status($status)
         {
             $patients = Covid::where("status", "like", "%" .$status. "%")->get();
+            $jumlah = Covid::where("status", "like", "%" .$status. "%")->count();
             $data = [
-                'message' => 'Get',
+                'message' => 'Get all resource',
+                'jumlah' => $jumlah,
                 'data' => $patients,
             ];
 
@@ -139,8 +141,10 @@ class PasienController extends Controller
         public function positive()
         {
             $patients = Covid::where("status", "positive")->get();
+            $jumlah = Covid::where("status", "positive")->count();
             $data = [
-                'message' => 'Get',
+                'message' => 'Get positive resource',
+                'jumlah' => $jumlah,
                 'data' => $patients,
             ];
 
@@ -150,8 +154,10 @@ class PasienController extends Controller
         public function recovered()
         {
             $patients = Covid::where("status", "recovered")->get();
+            $jumlah = Covid::where("status", "recovered")->count();
             $data = [
-                'message' => 'Get',
+                'message' => 'Get recovered resource',
+                'jumlah' => $jumlah,
                 'data' => $patients,
             ];
 
@@ -161,8 +167,10 @@ class PasienController extends Controller
         public function dead()
         {
             $patients = Covid::where("status", "dead")->get();
+            $jumlah = Covid::where("status", "dead")->count();
             $data = [
-                'message' => 'Get',
+                'message' => 'Get dead resource',
+                'jumlah' => $jumlah,
                 'data' => $patients,
             ];
 
